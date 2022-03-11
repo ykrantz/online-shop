@@ -1,0 +1,23 @@
+/* .products .product-card:first-child,
+.products .product-card:nth-child(2) {
+  flex: 2 46%;
+} */
+
+.Products-products {
+  width: 100%;
+  float: left;
+
+  /*  */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 920px) {
+  .Products-products {
+    flex: 2 46%;
+  }
+}
+/* .Products-products .product-card:first-child,
+.Products-products .product-card:nth-child(2) {
+  flex: 2 46%;
+} */

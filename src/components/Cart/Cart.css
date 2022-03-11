@@ -1,0 +1,22 @@
+.Cart-div {
+  float: right;
+  width: 30%;
+  margin-left: 50px;
+  background-color: white;
+  padding-left: 20px;
+  padding-top: 20px;
+  border-radius: 10px;
+  border: 1px solid gainsboro;
+}
+
+.Cart-header {
+  font-size: xx-large;
+  font-weight: 500;
+}
+.Cart-total {
+  background-color: beige;
+  border-radius: 5px;
+  padding-left: 10px;
+  margin-top: 20px;
+  margin-right: 20px;
+}

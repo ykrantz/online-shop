@@ -1,0 +1,10 @@
+.Item-details {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.Item-delete {
+  border-radius: 5px;
+  background-color: azure;
+  margin-left: 10px;
+}

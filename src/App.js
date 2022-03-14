@@ -6,6 +6,8 @@ import Cart from "./components/Cart/Cart";
 // import quantityList from "./contex/quantityList";
 // import updateQuantity from "./contex/updateQuantity";
 import handleQuantity from "./contex/handleQuantity";
+import CircularIndeterminate from "./components/CircularWaiting/CircularWaiting";
+import CircularWaiting from "./components/CircularWaiting/CircularWaiting";
 
 //
 function App() {
@@ -14,7 +16,7 @@ function App() {
   const [newProductsList, setNewProductList] = useState(initProductsList);
 
   const [itemsList, setItemsList] = useState([]);
-
+  const newProductsListLength = newProductsList.length;
   // getting data from server :
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/")
@@ -173,8 +175,23 @@ function App() {
         }}
       >
         <div className="App-productsAndCart">
-          <Products productsList={newProductsList} />
-          <Cart itemsList={itemsList} />
+          {newProductsListLength > 0 ? (
+            <>
+              <Products productsList={newProductsList} />
+              <Cart itemsList={itemsList} />
+            </>
+          ) : (
+            <div className="App-waitingForData">
+              Waiting to get data from server
+              <br></br>
+              <br></br>
+              Please Wait..
+              <br></br>
+              <br></br>
+              <CircularWaiting />
+            </div>
+          )}
+          {/* <Products productsList={newProductsList} /> */}
         </div>
       </handleQuantity.Provider>
     </>

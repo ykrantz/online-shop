@@ -20,7 +20,7 @@ const Cart = ({ itemsList }) => {
       <br></br>
       <br></br>
       <h5 className="Cart-total">
-        Total: {Number(calcTotalCart()).toFixed(1)}
+        Total: {Number(calcTotalCart()).toFixed(1)} $
       </h5>
     </div>
   );

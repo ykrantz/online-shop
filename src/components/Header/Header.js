@@ -12,7 +12,7 @@ const Header = ({
   defultSort,
 }) => (
   <div className="Header-product-filter">
-    <h1>Welcome to our Online Shop </h1>
+    <h1>Welcome to our Online Shop - Demo</h1>
 
     <div className="Header-sort">
       <div className="Header-collection-sort">

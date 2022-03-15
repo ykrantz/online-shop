@@ -6,7 +6,6 @@ import Cart from "./components/Cart/Cart";
 // import quantityList from "./contex/quantityList";
 // import updateQuantity from "./contex/updateQuantity";
 import handleQuantity from "./contex/handleQuantity";
-import CircularIndeterminate from "./components/CircularWaiting/CircularWaiting";
 import CircularWaiting from "./components/CircularWaiting/CircularWaiting";
 
 //

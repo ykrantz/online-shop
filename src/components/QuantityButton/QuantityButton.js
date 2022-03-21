@@ -10,6 +10,7 @@ const QuantityButton = ({ id }) => {
       className="QuantityButton-number"
       type="number"
       min="0"
+      max="100"
       onChange={(e) => handleUpdateQuantity(id, e.target.value)}
       value={getQuantityOfId(id)}
     ></input>

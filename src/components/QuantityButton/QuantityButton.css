@@ -2,5 +2,11 @@
   border-radius: 5px;
   margin-left: 5px;
   margin-top: 10px;
+  /* justify-items: center; */
+  text-align: center;
+  border: 2px solid gainsboro;
+  width: 150px;
+  /* border: solid gray; */
+  /* padding-left: 20px; */
   /* width: 50px; */
 }

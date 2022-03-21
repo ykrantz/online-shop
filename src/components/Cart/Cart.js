@@ -16,7 +16,7 @@ const Cart = ({ itemsList }) => {
         ? itemsList.map((item) => (
             <Item key={item.id} id={item.id} quantity={item.quantity} />
           ))
-        : "No items in cart"}
+        : `No items in cart. Please select item and quantity`}
       <br></br>
       <br></br>
       <h5 className="Cart-total">

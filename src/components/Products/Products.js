@@ -1,10 +1,21 @@
 import Product from "../Product/Product";
+import ProductIMui from "../ProductIMui/ProductIMui";
 import "./Products.css";
 
 const Products = ({ productsList }) => {
   const products = productsList.map(
     ({ id, title, price, description, category, image, rating }) => (
-      <Product
+      // <Product
+      //   key={id}
+      //   id={id}
+      //   title={title}
+      //   price={price}
+      //   description={description}
+      //   category={category}
+      //   image={image}
+      //   rating={rating}
+      // />
+      <ProductIMui
         key={id}
         id={id}
         title={title}

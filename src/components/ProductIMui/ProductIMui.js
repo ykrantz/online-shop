@@ -1,3 +1,5 @@
+import "./ProductIMui.css";
+
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
@@ -6,24 +8,31 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
-// import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
+import Avatar from "@mui/material/Avatar";
+import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
-// import FavoriteIcon from "@mui/icons-material/Favorite";
-// import ShareIcon from "@mui/icons-material/Share";
-// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-// import MoreVertIcon from "@mui/icons-material/MoreVert";
-
-import { useState } from "react";
-import { renderIntoDocument } from "react-dom/cjs/react-dom-test-utils.production.min";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShareIcon from "@mui/icons-material/Share";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import QuantityButton from "../QuantityButton/QuantityButton";
-import "./ProductIMui.css";
+import { minHeight } from "@mui/system";
+import QuantityButtonMui from "../QuantityButtonMui/QuantityButtonMui";
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
+// interface ExpandMoreProps extends IconButtonProps {
+//   expand: boolean;
+// }
+
+const ExpandMore = styled(
+  (
+    props
+    // : ExpandMoreProps
+  ) => {
+    const { expand, ...other } = props;
+    return <IconButton {...other} />;
+  }
+)(({ theme, expand }) => ({
   transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
   marginLeft: "auto",
   transition: theme.transitions.create("transform", {
@@ -31,7 +40,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const ProductIMui = ({
+export default function ProductIMui({
   id,
   title,
   price,
@@ -39,15 +48,29 @@ const ProductIMui = ({
   category,
   image,
   rating,
-}) => {
-  const [expanded, setExpanded] = useState(false);
+}) {
+  const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
   return (
-    <>
-      <Card sx={{ maxWidth: 345 }}>
+    <div className="ProductMui-product-card">
+      {/* <div className="ProductMui-div-image">
+        <img className="ProductMui-image" src={image} />
+      </div>
+      <div className="ProductMui-ProductMui-info">
+        <QuantityButton id={id} />
+        <h5>{title}</h5>
+        <h6>{description.substring(0, 100)}</h6>
+        <h5>price: {price} $</h5>
+        <h4>category: {category}</h4>
+        <h6>rating: {rating.rate}</h6>
+        <h6>rating count: {rating.count}</h6>
+      </div> */}
+
+      <Card sx={{ maxWidth: 345, minHeight: 700 }}>
         <CardHeader
           // avatar={
           //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -59,84 +82,64 @@ const ProductIMui = ({
           //     <MoreVertIcon />
           //   </IconButton>
           // }
+          sx={{ minHeight: 150 }}
           title={title}
-          // subheader="September 14, 2016"
+          titleTypographyProps={{ variant: "p" }}
+          subheader={category}
+          className="ProductMui-header"
         />
-        <CardMedia component="img" height="194" image={image} alt={title} />
+        <div className="ProductMui-image-div">
+          <div className="ProductMui-image">
+            <CardMedia
+              // sx={{ maxHeight: 300 }}
+              component="img"
+              // height="300"
+              image={image}
+              alt={title}
+              // className="ProductMui-image"
+            />
+          </div>
+        </div>
+        <QuantityButtonMui id={id} />
         <CardContent>
-          <Typography variant="body2" color="text.secondary">
-            price: {price}
-            <br></br>
-            category: {category}
-            <br></br>
-            rating: {rating.rate}
-            <br></br>
-            rating count: {rating.count}
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            className="ProductMui-product-info"
+          >
+            <Typography fontWeight={"medium"}>price: {price} $</Typography>
+            <Typography fontWeight={"light"}>rating: {rating.rate}</Typography>
+            <Typography fontWeight={"light"}>
+              rating count: {rating.count}
+            </Typography>
           </Typography>
         </CardContent>
-        {/* <CardActions disableSpacing> */}
-        {/* <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton> */}
-        {/* <ExpandMore
+        <CardActions disableSpacing>
+          {/* <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton> */}
+          {/* <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton> */}
+          <ExpandMore
             expand={expanded}
             onClick={handleExpandClick}
             aria-expanded={expanded}
             aria-label="show more"
           >
             <ExpandMoreIcon />
-          </ExpandMore> */}
-        {/* </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit> */}
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>{description.substring(0, 100)}</Typography>
-          {/* <Typography paragraph>
-              Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet
-              over medium-high heat. Add chicken, shrimp and chorizo, and cook,
-              stirring occasionally until lightly browned, 6 to 8 minutes.
-              Transfer shrimp to a large plate and set aside, leaving chicken
-              and chorizo in the pan. Add pimentón, bay leaves, garlic,
-              tomatoes, onion, salt and pepper, and cook, stirring often until
-              thickened and fragrant, about 10 minutes. Add saffron broth and
-              remaining 4 1/2 cups chicken broth; bring to a boil.
-            </Typography>
-            <Typography paragraph>
-              Add rice and stir very gently to distribute. Top with artichokes
-              and peppers, and cook without stirring, until most of the liquid
-              is absorbed, 15 to 18 minutes. Reduce heat to medium-low, add
-              reserved shrimp and mussels, tucking them down into the rice, and
-              cook again without stirring, until mussels have opened and rice is
-              just tender, 5 to 7 minutes more. (Discard any mussels that don’t
-              open.)
-            </Typography>
-            <Typography>
-              Set aside off of the heat to let rest for 10 minutes, and then
-              serve.
-            </Typography> */}
-        </CardContent>
-        {/* </Collapse> */}
+          </ExpandMore>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Description:</Typography>
+            <Typography paragraph>{description.substring(0, 100)}</Typography>
+
+            <Typography paragraph></Typography>
+            <Typography></Typography>
+          </CardContent>
+        </Collapse>
       </Card>
-
-      <div className="Product-product-card">
-        <div className="Product-product-image">
-          <img src={image} />
-        </div>
-        <div className="Product-product-info">
-          <QuantityButton id={id} />
-          <h5>{title}</h5>
-          <h6>{description.substring(0, 100)}</h6>
-          <h5>price: {price} $</h5>
-          <h4>category: {category}</h4>
-          <h6>rating: {rating.rate}</h6>
-          <h6>rating count: {rating.count}</h6>
-        </div>
-      </div>
-    </>
+    </div>
   );
-};
-
-export default ProductIMui;
+}

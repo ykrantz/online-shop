@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import handleQuantity from "../../contex/handleQuantity";
 import QuantityButton from "../QuantityButton/QuantityButton";
+import QuantityButtonMui from "../QuantityButtonMui/QuantityButtonMui";
 import "./Item.css";
 
 const Item = ({ id, quantity }) => {
@@ -19,10 +20,10 @@ const Item = ({ id, quantity }) => {
         <b> {productDetails.title} </b>
       </h3>
       <h6>
-        <b> price:</b>
+        <b> price: </b>
         {productDetails.price} $
       </h6>
-      <QuantityButton id={id} />
+      <QuantityButtonMui id={id} />
       <button
         className="Item-delete"
         onClick={() => handleUpdateQuantity(id, "0")}

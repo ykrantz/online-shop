@@ -13,8 +13,26 @@ const QuantityButtonMui = ({ id }) => {
         className="QuantityButtonMui-number"
         id="outlined-number"
         // label="Number"
+        //
+
         type="number"
-        InputProps={{ inputProps: { min: 0, max: 100 } }}
+        InputProps={{
+          inputProps: {
+            min: 0,
+            max: 100,
+            // placeholder: 0,
+
+            style: {
+              height: 2,
+              // width: 5,
+              textAlign: "center",
+              // width: 30,
+              // justifyContent: "center",
+              alignContent: "center",
+              // padding: "0 40px",
+            },
+          },
+        }}
         // inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
 
         onChange={(e) => handleUpdateQuantity(id, e.target.value)}
@@ -22,6 +40,13 @@ const QuantityButtonMui = ({ id }) => {
         InputLabelProps={{
           shrink: true,
         }}
+        // size="small"
+        // inputProps={{
+        //   style: {
+        //     height: 10,
+        //     padding: "0 14px",
+        //   },
+        // }}
       />
     </div>
     // <input

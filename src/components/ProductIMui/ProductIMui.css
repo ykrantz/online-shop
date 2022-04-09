@@ -9,15 +9,33 @@
 }
 .ProductMui-header{
   text-align: center;
+  /* height: 80px; */
+  /* background-color: aqua; */
   /* font-size: x-small; */
 }
 .ProductMui-image-div{
-height: 300px;
+  height: 300px;
 
+  margin-left: 10px;
+margin-right: 10px;
+margin-bottom: 20px;
+
+  display: flex;
+  justify-content: center;
+  object-fit:contain;
+  align-items: center;
 }
 .ProductMui-image img {
   width: 100%;
-  max-height: 300px;
+  max-height: 280px;
+  /* padding-left: 10px;
+  padding-right: 10px; */
+
+  object-fit:contain;
+  /* display: flex;
+  justify-content: center;
+  object-fit:contain;
+  align-items: center; */
   /* background-size: cover; */
   /* object-fit: cover; */
   /* min-height: 500px; */

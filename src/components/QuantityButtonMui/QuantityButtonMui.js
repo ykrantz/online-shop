@@ -13,6 +13,7 @@ const QuantityButtonMui = ({ id }) => {
         className="QuantityButtonMui-number"
         id="outlined-number"
         // label="Number"
+        //
         type="number"
         InputProps={{ inputProps: { min: 0, max: 100 } }}
         // inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}

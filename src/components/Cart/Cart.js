@@ -2,7 +2,7 @@ import { useContext } from "react";
 import handleQuantity from "../../contex/handleQuantity";
 import Item from "../Item/Item";
 import "./Cart.css";
-
+//
 const Cart = ({ itemsList }) => {
   const { calcTotalCart } = useContext(handleQuantity);
   const itemsListLen = itemsList.length;

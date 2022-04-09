@@ -1,10 +1,21 @@
 .Item-details {
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 10px;
 }
 
+
+.Item-item-allDetails{
+
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
 .Item-delete {
   border-radius: 5px;
-  background-color: azure;
-  margin-left: 10px;
+  /* background-color: azure; */
+  /* margin-left: 10px; */
+}
+
+.Item-quantity{
+  display: flex;
+  margin-top: 0px;
 }

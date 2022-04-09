@@ -82,8 +82,8 @@ export default function ProductIMui({
           //     <MoreVertIcon />
           //   </IconButton>
           // }
-          sx={{ minHeight: 150 }}
-          title={title}
+          sx={{ height: 80 }}
+          title={title.substring(0, 60)}
           titleTypographyProps={{ variant: "p" }}
           subheader={category}
           className="ProductMui-header"
